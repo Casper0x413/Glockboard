@@ -1,0 +1,105 @@
+:root{
+  --altground: 239,239,239;
+  --background: 16,16,16;
+  --foreground: 0,255,0;
+  --header-size: 48px;
+  --header-mobile-size: 64px;
+}
+
+@font-face{
+  font-family: title;
+  src: url(fonts/title.ttf);
+}
+
+body,html{
+  background:
+    linear-gradient(27deg, #121212 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #121212 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #242424 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #242424 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1f1f1f 25%, #1b1b1b 25%, #1b1b1b 50%, transparent 50%, transparent 75%, #282828 75%, #282828);
+  background-color: rgba(var(--background,1));
+  background-size: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+header{
+  align-items: center;
+  background: rgba(var(--foreground),1);
+  box-shadow: inset 0 0 8px rgba(var(--background),1), inset 0 0 16px rgba(var(--background),1);
+  display: flex;
+  height: var(--header-mobile-size);
+  justify-content: center;
+  width: 100vw;
+}
+
+header::before{
+  color: rgba(var(--background),1);
+  content: "Glockboard";
+  font-family: title;
+  font-size: 3.2em;
+  font-weight: bolder;
+}
+
+content{
+  align-content: flex-start;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: calc(100vh - var(--header-mobile-size));
+  justify-content: center;
+  overflow: auto;
+  padding: 16px;
+  width: 100vw;
+}
+
+content button{
+  background: rgba(var(--foreground),0.6);
+  border: none;
+  border-radius: 4px;
+  box-shadow: inset 0 0 8px rgba(var(--background),1);
+  color: rgba(var(--background),1);
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 1.8em;
+  font-weight: bolder;
+  margin: 8px;
+  outline: none;
+  padding: 8px 32px;
+  width: 100%;
+}
+
+content button:hover{
+  background: rgba(var(--foreground),1);
+}
+
+@media screen and (min-width: 640px){
+  header{
+    height: var(--header-size);
+  }
+
+  header::before{
+    content: "Glock Soundboard";
+    font-size: 2.8em;
+  }
+
+  content{
+    height: calc(100vh - var(--header-size));
+  }
+
+  content button{
+    width: initial;
+  }
+}
